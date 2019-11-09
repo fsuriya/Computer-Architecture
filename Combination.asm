@@ -1,8 +1,8 @@
-		$4=1 #select bit
-		$5=15
-		$2=0 #start bit
-		$3=1
-		$7=0 #start shift loop
+		sw		4		0		1 			#$4=1 #select bit
+		sw		5		0		15			#$5=15
+		sw		2		0		0			#$2=0 #start bit
+		sw		3		0		1			#$3=1
+		sw		7		0		0			#$7=0 #start shift loop
 combi :	nand	Mplier	4		6
 		nand	6		6		6			#selecte Mplier bit
 		add		4		4		4			#shift select Mplier bit
