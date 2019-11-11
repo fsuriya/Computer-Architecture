@@ -1,8 +1,14 @@
-		sw		4		0		1 			#$4=1 #select bit
-		sw		5		0		15			#$5=15
-		sw		2		0		0			#$2=0 #start bit
-		sw		3		0		1			#$3=1
-		sw		7		0		0			#$7=0 #start shift loop
+$4=1 #select bit
+$5=15
+$2=0 #start bit
+$3=1
+$7=0 #start shift loop
+
+		sw		0		4		selectbit
+		sw		0		5		fifteen
+		sw		0		2		startbit
+		sw		0		3		one
+		sw		0		7		startshiftloop
 combi :	nand	Mplier	4		6
 		nand	6		6		6			#selecte Mplier bit
 		add		4		4		4			#shift select Mplier bit
@@ -16,8 +22,16 @@ shift :	beq		2		7		4
 		add		2		3		2			
 		beq		2		5		2			#check end loop mul
 		beq		0		0		combi
-		noop
-done :	halt
+done	noop
+Mplier			.fill	input1
+Mcand			.fill	input2
+shift			.fill	shift
+combi			.fill	combi
+selectbit		.fill	1
+fifteen			.fill	15
+startbit		.fill	0
+one				.fill	1
+startshiftloop	.fill	0
 
 #IN RICS-V
 addi x4,x0,1
