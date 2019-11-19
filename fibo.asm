@@ -21,11 +21,11 @@ $3          #temp3
 $4 = n      #input
 $5 = 1      #i
 $6 = 1
-        sw      0       1       temp1
-        sw      0       2       temp2
-        sw      0       4       n
-        sw      0       5       i
-        sw      0       6       one
+        lw      0       1       temp1
+        lw      0       2       temp2
+        lw      0       4       n
+        lw      0       5       i
+        lw      0       6       one
         beq     1       4       done1
         beq     2       4       done2
 L1      add     0       2       3
