@@ -10,8 +10,9 @@ $7 return address
 //check 2 to bitgeaterthan output = max value
  
  beq 1 2 equ 
-start add 1 1 neg      //n=n-1
- add 2 2 neg           //r=r-1
+start lw 0 6 neg  
+ add 1 1 6      //n=n-1
+ add 2 2 6           //r=r-1
  beq 1 0 nlt           //n=0 go nlt
  beq 2 0 rlt           //r=0 go rlt
  beq 0 0 start         //goto start
