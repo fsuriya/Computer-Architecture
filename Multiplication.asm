@@ -1,37 +1,36 @@
 $0 = 0
 $1 answer
-$2=0 #start bit
-$3=1
-$4=1 #select bit
-$5=32
-$6 #temp
-$7=0 #start shift loop
+$2 Mcand
+$3 Mplier
+$4 temp
+$5 = 32 endloop
+$6 selectbit
+$7 = 1 constant
 
-		lw		0		4		selectbit
-		lw		0		5		loop
-		lw		0		2		startbit
-		lw		0		3		one
-		lw		0		7		startshiftloop
-combi 	nand	Mplier	4		6
-		nand	6		6		6			#selecte Mplier bit
-		add		4		4		4			#shift select Mplier bit
-		nand	Mcand	6		6
-		nand	6		6		6			#multiplier
-shift 	beq		2		7		4
-		add		6		6		6
-		add		7		3		7
-		beq		0		0		shift		#end of shift
-		add		1		6		1			#store answer
-		add		2		3		2			
-		beq		2		5		2			#check end loop mul
-		beq		0		0		combi
-done	noop
-Mcand			.fill	input1
-Mplier			.fill	input2
-shift			.fill	shift
-combi			.fill	combi
-selectbit		.fill	1
-loop			.fill	32
-startbit		.fill	0
-one				.fill	1
-startshiftloop	.fill	0
+				lw		0		2		Mcand
+				lw		0		3		Mplier
+				lw		0		5		endloop
+				lw		0		6		selectbit
+				lw		0		7		one
+				lw		0		4		countloop
+				sw		1		4		countloop
+selMplier		nand	3		6		4				#selectMplier to temp
+				beq		7		4		shiftMcand
+				add		2		1		1				#add Mcand to ans($1)
+shMcand			add		2		2		2				#shift Mcand
+				add		6		6		6				#shift selectbit
+				lw		1		4		countloop
+				add		7		4		4
+				sw		1		4		countloop
+				beq		5		4		done			#if bit 32 goto done
+				beq		0		0		selectMplier
+done			noop
+Mcand		 .fill		input1
+Mplier		 .fill		input2
+selectbit	 .fill		1
+endloop		 .fill		32
+one			 .fill		1
+shiftMcand	 .fill		shMcand
+done		 .fill		done
+selectMplier .fill		selMplier
+countloop	 .fill		0
