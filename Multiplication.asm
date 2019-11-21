@@ -12,7 +12,6 @@ $7 = 1 constant
 				lw		0		5		endloop
 				lw		0		6		selectbit
 				lw		0		7		one
-				lw		0		4		countloop
 				sw		7		4		storecountloop
 selMplier		        nand	        3		6		4                               #selectMplier to temp
                                 nand            4               4               4
@@ -34,5 +33,4 @@ one			 .fill		1
 shiftMcand	 .fill		shMcand
 done		 .fill		done
 selectMplier .fill		selMplier
-countloop	 .fill		0
 storecountloop   .fill          50
