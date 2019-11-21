@@ -29,8 +29,8 @@ Mcand		 .fill		input1
 Mplier		 .fill		input2
 selectbit	 .fill		1
 endloop		 .fill		32
-one			 .fill		1
+one		 .fill		1
 shiftMcand	 .fill		shMcand
 done1		 .fill		done
-selectMplier .fill		selMplier
+selectMplier     .fill		selMplier
 storecountloop   .fill          50
