@@ -15,16 +15,16 @@ $7 = 1 constant
 				sw		7		4		storecountloop
 selMplier		        nand	        3		6		4                               #selectMplier to temp
                                 nand            4               4               4
-				beq		0		4		shiftMcand
+				beq		0		4		shMcand
 				add		2		1		1				#add Mcand to ans($1)
 shMcand			        add		2		2		2				#shift Mcand
 				add		6		6		6				#shift selectbit
 				lw		7		4		storecountloop
 				add		7		4		4
 				sw		7		4		storecountloop
-				beq		5		4		done1			#if bit 32 goto done
-				beq		0		0		selectMplier
-done			        noop
+				beq		5		4		done				#if bit 32 goto done
+				beq		0		0		selMplier
+done			       	halt
 Mcand		 .fill		input1
 Mplier		 .fill		input2
 selectbit	 .fill		1
@@ -33,4 +33,4 @@ one		 .fill		1
 shiftMcand	 .fill		shMcand
 done1		 .fill		done
 selectMplier     .fill		selMplier
-storecountloop   .fill          50
+storecountloop   .fill          30
