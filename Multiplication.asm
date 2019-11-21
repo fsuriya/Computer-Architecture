@@ -21,7 +21,7 @@ shMcand			        add		2		2		2				#shift Mcand
 				add		6		6		6				#shift selectbit
 				lw		7		4		storecountloop
 				add		7		4		4
-				sw		1		4		storecountloop
+				sw		7		4		storecountloop
 				beq		5		4		done1			#if bit 32 goto done
 				beq		0		0		selectMplier
 done			        noop
