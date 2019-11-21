@@ -9,16 +9,22 @@ $6 temporary value (can hold different values at different times, e.g.
 $7 return address
 //check 2 to bitgeaterthan output = max value
  
+ lw 0 2 r
+ lw 0 1 n
  beq 1 2 equ 
 start lw 0 6 neg  
- add 1 1 6      //n=n-1
- add 2 2 6           //r=r-1
+ add 1 6 1      //n=n-1
+ add 2 6 2           //r=r-1
  beq 1 0 nlt           //n=0 go nlt
  beq 2 0 rlt           //r=0 go rlt
  beq 0 0 start         //goto start
-nlt add 3 2 0          //r>n r = max n = min
+nlt lw 0 2 r 
+ add 0 2 3          //r>n r = max n = min
  halt
-rlt add 3 1 0          //n>r n = max r = min 
+rlt lw 0 1 n 
+ add 0 1 3          //n>r n = max r = min 
  halt
 equ halt
 neg .fill -1 
+r .fill 1
+n .fill 5
