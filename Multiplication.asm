@@ -33,7 +33,7 @@ done				halt									#end program
 Mcand		 	.fill		32766
 Mplier		 	.fill		10383
 selectbit	 	.fill		1
-endloop			.fill		32
+endloop			.fill		31
 one		 	.fill		1
 loopcount	    	.fill	       	30
 memoverflow		.fill		32
