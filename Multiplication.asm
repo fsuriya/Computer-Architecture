@@ -27,7 +27,7 @@ shMcand				add		2		2		2			#shift Mcand
 				lw		7		4		loopcount		#load memory loopcount
 				add		7		4		4			#loopcount++
 				sw		7		4		loopcount		#store loopcount to memory
-				beq		5		4		done			#if loopcount == 32 goto done
+				beq		5		4		done			#if loopcount == 31 goto done
 				beq		0		0		selMplier		#goto selMplier
 done				halt									#end program
 Mcand		 	.fill		32766
