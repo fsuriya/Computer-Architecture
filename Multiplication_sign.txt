@@ -6,15 +6,16 @@
 				nand	3		5		7
 				nand	7		7		7
 				beq		6		7		eq
-				add		0		5		7
+				add		0		5		4
+				sw		0		4		signbit
 				beq		0		0		store1
-eq			add		0		0		1
+eq				add		0		0		1
 				sw		0		1		signbit
-store1	lw		0		1		one
+store1			lw		0		1		one
 				lw		0		4		allone
 				beq		6		5		sign1
 				beq		0		0		checksign2
-sign1		nand	4		2		2
+sign1			nand	4		2		2
 				add		2		1		2
 checksign2		beq		7		5		sign2
 				beq		0		0		store2
@@ -48,8 +49,8 @@ done			lw		7		4		signbit
 				nand	1		6		1
 				add		7		1		1
 end				halt									#end program
-Mcand		 	.fill		32766
-Mplier		 	.fill		10383
+Mcand		 	.fill		-10
+Mplier		 	.fill		2
 selectbit	 	.fill		1
 endloop			.fill		31
 one		 		.fill		1
