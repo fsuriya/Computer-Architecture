@@ -28,7 +28,7 @@ start beq 2 0 L1    //r=0 go L1
  halt
 L1 lw 0 6 pos1
    add 0 6 3        // output = 1
-   beq 0 0 7
+   beq 0 0 7        //ทำไมกระโดดไปที่ start ไม่กระโดดไปยัง stack ก่อนหน้า??
 pos1 .fill 1
 neg1 .fill -1 
 n    .fill inputn
@@ -36,3 +36,26 @@ r    .fill inputr
 stack1 .fill 50
 stack2 .fill 51
 stackout .fill 60 
+
+$0 value 0
+$1 n input to function
+$2 r input to function
+$3 return value of function
+$4 local variable for function
+$5 stack pointer
+$6 temporary value (can hold different values at different times, e.g.
+ +1, -1, function address)
+$7 return address
+
+        lw      0       1       N           #$1 = N
+        lw      0       2       R           #$2 = R
+L1      beq     0       2       done        #R==0? goto done
+        beq     1       2       done        #N==R? goto done
+
+done    
+
+N       .fill           input_N
+R       .fill           input_R
+neg1    .fill           -1
+pos1    .fill           1
+done    .fill           done
